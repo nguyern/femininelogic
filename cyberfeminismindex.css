@@ -1,0 +1,115 @@
+body {
+  background: #fff;
+  color: #000;
+  font-family: Arial, sans-serif;
+  font-size: 22px;
+  line-height: 1.25;
+  margin: 20px 0 0 20px;
+  padding-right: 40px;
+}
+
+.entry {
+  display: grid;
+  grid-template-columns: 50px 70px 560px 260px;
+  column-gap: 8px;
+  align-items: start;
+  padding: 0.5px 0;
+  cursor: pointer;
+}
+
+.num {
+  font-family: "Noto Sans Symbols2", "Segoe UI Symbol", "Arial Unicode MS", sans-serif;
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: translateY(1px);
+  color: #000;
+}
+
+.year,
+.title,
+.author {
+  color: #000;
+  font-weight: normal;
+  text-align: left;
+  text-decoration: none;
+  margin: 0;
+}
+
+.author {
+  text-align: left;
+  padding-left: 4px;
+}
+
+/* hover + open state */
+.entry:hover .num,
+.entry:hover .year,
+.entry:hover .title,
+.entry:hover .author,
+.entry.open .num,
+.entry.open .year,
+.entry.open .title,
+.entry.open .author {
+  color: #ff008c;
+}
+
+.desc {
+  grid-column: 3 / 5;
+  margin-top: 8px;
+  display: none;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+.desc a {
+  color: #ff008c;
+  text-decoration: none;
+  word-break: break-word;
+}
+
+.desc a:hover {
+  text-decoration: underline;
+}
+
+.entry.open .desc {
+  display: block;
+}
+
+/* ---- Mobile responsiveness (mimic real Cyberfeminism Index) ---- */
+@media (max-width: 900px) {
+  body {
+    font-size: 18px;
+    margin: 10px;
+  }
+
+  .entry {
+    grid-template-columns: 40px 60px 1fr 180px; /* keep same structure, just shrink proportions */
+    column-gap: 6px;
+    padding: 1px 0;
+  }
+
+  .num { font-size: 18px; }
+  .year, .title, .author, .desc { font-size: 18px; }
+
+  .desc {
+    margin-top: 6px;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 600px) {
+  body {
+    font-size: 16px;
+  }
+
+  .entry {
+    grid-template-columns: 35px 50px 1fr 150px; /* tighter still */
+    column-gap: 4px;
+  }
+
+  .num { font-size: 16px; }
+  .year, .title, .author, .desc { font-size: 16px; }
+}
