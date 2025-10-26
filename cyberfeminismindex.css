@@ -1,26 +1,27 @@
+/* Base styles — scaled up from 22px → 24px */
 body {
   background: #fff;
   color: #000;
   font-family: Arial, sans-serif;
-  font-size: 22px;
-  line-height: 1.25;
-  margin: 20px 0 0 20px;
+  font-size: 24px;
+  line-height: 1.3;
+  margin: 24px 0 0 24px;
   padding-right: 40px;
 }
 
 .entry {
   display: grid;
-  grid-template-columns: 50px 70px 560px 260px;
-  column-gap: 8px;
+  grid-template-columns: 55px 80px 620px 280px;
+  column-gap: 10px;
   align-items: start;
-  padding: 0.5px 0;
+  padding: 2px 0;
   cursor: pointer;
 }
 
 .num {
   font-family: "Noto Sans Symbols2", "Segoe UI Symbol", "Arial Unicode MS", sans-serif;
   font-weight: 700;
-  font-size: 22px;
+  font-size: 24px;
   line-height: 1;
   display: flex;
   align-items: center;
@@ -78,43 +79,52 @@ body {
   display: block;
 }
 
-/* ---- Mobile responsiveness (slightly larger text version) ---- */
+/* ---- Responsive: proportional scaling ---- */
+@media (max-width: 1200px) {
+  body {
+    font-size: 22px;
+    margin: 20px;
+  }
+
+  .entry {
+    grid-template-columns: 50px 70px 1.5fr 0.9fr;
+    column-gap: 8px;
+  }
+
+  .num { font-size: 22px; }
+  .year, .title, .author, .desc { font-size: 22px; }
+}
+
 @media (max-width: 900px) {
+  body {
+    font-size: 19px;
+    margin: 16px;
+  }
+
+  .entry {
+    grid-template-columns: 40px 60px 1.5fr 0.9fr;
+    column-gap: 6px;
+  }
+
+  .num { font-size: 19px; }
+  .year, .title, .author, .desc { font-size: 19px; line-height: 1.25; }
+
+  .desc { font-size: 18px; }
+}
+
+@media (max-width: 600px) {
   body {
     font-size: 17px;
     margin: 10px;
   }
 
   .entry {
-    grid-template-columns: 40px 55px 1.5fr 0.9fr; /* gives title a touch more space */
-    column-gap: 6px;
-    padding: 2px 0;
-  }
-
-  .num { font-size: 17px; }
-  .year, .title, .author, .desc { font-size: 17px; line-height: 1.25; }
-
-  .desc {
-    margin-top: 6px;
-    font-size: 16px;
-  }
-}
-
-@media (max-width: 600px) {
-  body {
-    font-size: 15.5px;
-    margin: 8px;
-  }
-
-  .entry {
-    grid-template-columns: 35px 50px 1.4fr 0.85fr; /* tighter but balanced */
+    grid-template-columns: 35px 50px 1.4fr 0.85fr;
     column-gap: 4px;
   }
 
-  .num { font-size: 15.5px; }
-  .year, .title, .author, .desc { font-size: 15.5px; line-height: 1.2; }
+  .num { font-size: 17px; }
+  .year, .title, .author, .desc { font-size: 17px; line-height: 1.2; }
 
-  .desc {
-    font-size: 15px;
-  }
+  .desc { font-size: 16px; }
 }
