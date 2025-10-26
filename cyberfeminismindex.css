@@ -78,38 +78,37 @@ body {
   display: block;
 }
 
-/* ---- Mobile responsiveness (mimic real Cyberfeminism Index) ---- */
-@media (max-width: 900px) {
+/* Responsive scaling for mobile */
+@media (max-width: 768px) {
   body {
-    font-size: 18px;
-    margin: 10px;
+    font-size: 12px; /* smaller text overall */
+    margin: 8px;
   }
 
-  .entry {
-    grid-template-columns: 40px 60px 1fr 180px; /* keep same structure, just shrink proportions */
-    column-gap: 6px;
-    padding: 1px 0;
+  table {
+    width: 100%;
+    table-layout: fixed; /* ensures columns stay aligned */
   }
 
-  .num { font-size: 18px; }
-  .year, .title, .author, .desc { font-size: 18px; }
-
-  .desc {
-    margin-top: 6px;
-    font-size: 16px;
-  }
-}
-
-@media (max-width: 600px) {
-  body {
-    font-size: 16px;
+  td, th {
+    padding: 2px 6px;
+    vertical-align: top;
+    word-wrap: break-word;
   }
 
-  .entry {
-    grid-template-columns: 35px 50px 1fr 150px; /* tighter still */
-    column-gap: 4px;
+  /* Columns take relative widths */
+  .num-col { width: 6%; }
+  .year-col { width: 10%; }
+  .title-col { width: 55%; }
+  .author-col { width: 29%; }
+
+  /* Make sure text doesn't wrap awkwardly */
+  .title-col, .author-col {
+    word-break: break-word;
   }
 
-  .num { font-size: 16px; }
-  .year, .title, .author, .desc { font-size: 16px; }
+  /* Optional: reduce line spacing for tighter fit */
+  tr {
+    line-height: 1.2em;
+  }
 }
