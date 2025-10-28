@@ -107,11 +107,13 @@ body {
 }
 
 .desc a {
-  color: #ff0099;
-  text-decoration: none;
-  display: block;      /* puts link on its own line */
+  display: inline-block;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  white-space: normal;
+  line-break: anywhere;
 }
-
 /* Proportional scaling */
 
 /* Small desktop (≤1300px) */
