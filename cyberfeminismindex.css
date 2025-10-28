@@ -21,10 +21,11 @@ body {
   display: grid;
   grid-template-columns: 4rem 6.2ch minmax(0, 56ch) minmax(10ch, 1fr);
   column-gap: 4px;
-  align-items: start;
-  padding: 4px 0;
+  align-items: start; /* ✅ top-aligns all cells in each row */
+  padding: 3px 0;
   width: 100%;
 }
+
 
 /* Let each cell shrink and wrap instead of overflowing */
 .num, .year, .title, .author {
@@ -33,15 +34,15 @@ body {
 
 /* ====== Number ====== */
 .num {
-  font-family: "Noto Sans Symbols2", "Segoe UI Symbol", "Arial Unicode MS", sans-serif;
+  font-family: "Segoe UI Symbol", "Apple Symbols", "Arial Unicode MS", "Noto Sans Symbols 2", sans-serif;
   font-weight: 600;
   font-size: 18px;
   line-height: 1;
   display: flex;
-  align-items: flex-start;
+  align-items: flex-start; /* ✅ top-aligns the circled number */
   justify-content: flex-start;
   position: relative;
-  top: 1px;
+  top: 6px; /* small nudge for optical alignment */
   white-space: nowrap;
 }
 
@@ -92,7 +93,7 @@ body {
   grid-column: 3 / 5;
   margin-top: 6px;
   display: none;
-  font-size: 22px;
+  font-size: 24px;
   line-height: 1.25;
 }
 
@@ -100,13 +101,16 @@ body {
   display: block;
 }
 
+.desc {
+  margin-top: 0.8em;   /* space above the description paragraph */
+  margin-bottom: 1em;  /* space below the link */
+}
+
 .desc a {
   color: #ff0099;
   text-decoration: none;
-}
-
-.desc a:hover {
-  text-decoration: underline;
+  display: block;      /* puts link on its own line */
+  margin-top: 0em;   /* a little gap between text and link */
 }
 
 /* --- Proportional scaling all the way to phone --- */
@@ -181,4 +185,79 @@ body {
   }
 
   .num, .year, .title, .author, .desc { font-size: 15px; }
+}
+
+
+/* ↓↓↓ COLUMN LABEL ARROWS ↓↓↓ */
+.column-labels {
+  display: grid;
+  grid-template-columns: 4rem 6.2ch minmax(0, 56ch) minmax(10ch, 1fr);
+  align-items: start;
+  margin-bottom: 6px;
+  padding-left: 0;
+  width: 100%;
+}
+
+.column-labels span:first-child {
+  visibility: hidden; /* hides empty num column */
+}
+
+.column-labels .arrow {
+  font-family: "Arial Unicode MS", "Noto Sans Symbols2", sans-serif;
+  font-size: 22px;
+  font-weight: 900;
+  color: #000;
+  line-height: 1;
+  display: inline-block;
+  text-align: left;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.column-labels .arrow--year {
+  transform: translateX(0.2ch) translateY(2px);
+}
+
+.column-labels .arrow--title {
+  transform: translateX(0.7ch) translateY(2px);
+}
+
+.column-labels .arrow--author {
+  transform: translateX(1.4ch) translateY(2px);
+}
+
+/* Hover + Active Pink */
+.column-labels .arrow:hover,
+.column-labels .arrow:focus {
+  color: #ff0099;
+}
+
+@media (max-width: 1300px) {
+  .column-labels {
+    grid-template-columns: 38px 68px 2.7fr 1.1fr;
+  }
+}
+
+@media (max-width: 1100px) {
+  .column-labels {
+    grid-template-columns: 36px 64px 2.45fr 1.1fr;
+  }
+}
+
+@media (max-width: 900px) {
+  .column-labels {
+    grid-template-columns: 34px 60px 2.25fr 1.1fr;
+  }
+}
+
+@media (max-width: 750px) {
+  .column-labels {
+    grid-template-columns: 32px 56px 2.1fr 1.05fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .column-labels {
+    grid-template-columns: 28px 50px 2fr 1fr;
+  }
 }
