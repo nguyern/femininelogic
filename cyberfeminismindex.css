@@ -106,7 +106,10 @@ body {
   margin-bottom: 1em;  /* space below the link */
 }
 
+
 .desc a {
+  color: #ff0099;
+  text-decoration: underline;
   display: inline-block;
   max-width: 100%;
   overflow-wrap: anywhere;
@@ -114,6 +117,7 @@ body {
   white-space: normal;
   line-break: anywhere;
 }
+
 /* Proportional scaling */
 
 /* Small desktop (≤1300px) */
